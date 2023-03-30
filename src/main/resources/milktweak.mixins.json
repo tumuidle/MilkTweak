@@ -11,7 +11,8 @@
   "client": [
     "client.gui.screen.MixinDeathScreen",
     "client.gui.screen.MixinDisconnectedScreen",
-    "client.gui.screen.MixinPlayerTabOverlayGui"
+    "client.gui.screen.MixinPlayerTabOverlayGui",
+    "patch.camera.MixinCameraScreen"
   ],
   "injectors": {
     "defaultRequire": 1

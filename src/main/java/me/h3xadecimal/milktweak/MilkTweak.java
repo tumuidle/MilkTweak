@@ -23,7 +23,7 @@ public class MilkTweak {
     public static MilkTweak INSTANCE;
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     private MainUI uiInstance;
     private FileConfig config;
     private MilkTweakEB eventBus;

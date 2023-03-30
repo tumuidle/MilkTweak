@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.h3xadecimal.milktweak.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "milktweak.refmap.json",
+  "mixins": [
+    "entity.player.MixinPlayerEntity",
+    "network.MixinNetworkManager"
+  ],
+  "client": [
+    "client.gui.screen.MixinDeathScreen",
+    "client.gui.screen.MixinDisconnectedScreen",
+    "client.gui.screen.MixinPlayerTabOverlayGui"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

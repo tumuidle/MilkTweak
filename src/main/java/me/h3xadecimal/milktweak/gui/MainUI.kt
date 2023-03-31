@@ -40,6 +40,8 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
+        this.renderBackground(matrixStack)
+
         val fr = Minecraft.getInstance().fontRenderer
         fr.drawString(
             matrixStack, "MilkTweak",

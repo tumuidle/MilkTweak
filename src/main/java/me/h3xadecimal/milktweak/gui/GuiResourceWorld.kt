@@ -25,6 +25,8 @@ class GuiResourceWorld: Screen(StringTextComponent("ResourceWorld")) {
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
+        this.renderBackground(matrixStack)
+
         val title = "资源世界"
         val tip = "由于服务器权限限制，无法直接传送到主世界"
 

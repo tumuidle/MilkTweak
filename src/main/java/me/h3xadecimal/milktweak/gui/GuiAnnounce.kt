@@ -4,6 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack
 import me.h3xadecimal.milktweak.utils.RenderUtil
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.widget.button.Button
 import net.minecraft.util.text.StringTextComponent
 
 class GuiAnnounce: Screen(StringTextComponent("Announce")) {
@@ -12,7 +13,15 @@ class GuiAnnounce: Screen(StringTextComponent("Announce")) {
         val announce = arrayOf("")
     }
 
+    override fun init() {
+        addButton(Button(width/2, 50+announce.size*10, 100, 20, StringTextComponent("返回")) {
+            minecraft!!.displayGuiScreen(MainUI())
+        })
+    }
+
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
+        this.renderBackground(matrixStack)
+
         val mc = Minecraft.getInstance() ?: return
         val fr = mc.fontRenderer
 

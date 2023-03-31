@@ -45,6 +45,8 @@ class GuiTeleport: Screen(StringTextComponent("Teleport")) {
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
+        this.renderBackground(matrixStack)
+
         val title = "公用传送点"
         mc.fontRenderer.drawTextWithShadow(matrixStack, StringTextComponent(title), RenderUtil.getCenterX(this, title).toFloat(), 20f, 0xffffff)
 

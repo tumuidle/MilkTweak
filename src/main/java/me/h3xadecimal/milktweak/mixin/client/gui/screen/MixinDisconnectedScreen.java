@@ -28,7 +28,7 @@ public abstract class MixinDisconnectedScreen extends Screen {
      */
     @Overwrite
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
-        RenderUtil.drawImage(new ResourceLocation("milktweak", "xibao"), 0, 0, width, height);
+        RenderUtil.drawImage(new ResourceLocation("milktweak", "xibao.png"), 0, 0, width, height);
         drawCenteredString(matrixStack, this.font, this.title, this.width / 2, this.height / 2 - textHeight / 2 - 9 * 2, 11184810);
         field_243289_b.func_241863_a(matrixStack, this.width / 2, this.height / 2 - textHeight / 2);
         super.render(matrixStack, mouseX, mouseY, partialTicks);

@@ -22,6 +22,8 @@ class GuiTeleport: Screen(StringTextComponent("Teleport")) {
         val ser3 = HashMap<String, String>()
 
         init {
+            ser2["the_xiaoxiang.xiaoheita"] = "小黑塔"
+
             ser3["gouzi846.dianwancheng"] = "电玩城"
         }
     }

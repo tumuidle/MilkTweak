@@ -20,7 +20,8 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
         // LINE 1
         spawnButton = addButton(Button(
             width / 2 - 105, 60, 100, 20, StringTextComponent("主城")
-        ) { minecraft!!.player!!.sendChatMessage("/spawn") })
+        ) { minecraft!!.player!!.sendChatMessage("/spawn")
+        closeScreen()})
         teleportButton = addButton(Button(
             width / 2 + 5, 60, 100, 20, StringTextComponent("传送")
         ) { minecraft!!.displayGuiScreen(GuiTeleport()) })
@@ -31,7 +32,8 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
         ) { minecraft!!.displayGuiScreen(GuiResourceWorld())})
         homeButton = addButton(Button(
             width/2 + 5, 85, 100, 20, StringTextComponent("回家")
-        ) { minecraft!!.player!!.sendChatMessage("/home home") })
+        ) { minecraft!!.player!!.sendChatMessage("/home home")
+        closeScreen()})
 
         // LINE 3
         announceButton = addButton(Button(

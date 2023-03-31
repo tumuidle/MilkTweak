@@ -14,6 +14,7 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
     lateinit var homeButton: Button
 
     lateinit var protectionButton: Button
+    lateinit var announceButton: Button
 
     override fun init() {
         // LINE 1
@@ -31,6 +32,11 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
         homeButton = addButton(Button(
             width/2 + 5, 85, 100, 20, StringTextComponent("回家")
         ) { minecraft!!.player!!.sendChatMessage("/home home") })
+
+        // LINE 3
+        announceButton = addButton(Button(
+            width/2 + 5, 110, 100, 20, StringTextComponent("信息")
+        ) { minecraft!!.displayGuiScreen(GuiAnnounce()) })
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

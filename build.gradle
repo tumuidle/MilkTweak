@@ -146,7 +146,8 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
-    implementation fileTree(dir: "libs", includes: ['*.jar'])
+    compileClasspath fileTree(dir: "libs", includes: ['*.jar'])
+//    implementation fileTree(dir: "/run/mods", includes: ['*.jar'])
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

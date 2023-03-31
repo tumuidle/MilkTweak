@@ -6,6 +6,8 @@ import net.minecraft.client.gui.fonts.Font;
 import net.minecraft.util.ResourceLocation;
 
 public class Fonts {
+    public static final FontRenderer ARIAL = loadFont("arial");
+
     private static FontRenderer loadFont(String name) {
         Font f = new Font(Minecraft.getInstance().getTextureManager(), new ResourceLocation("milktweak",  "fonts/" + name + ".ttf"));
         FontRenderer fr = new FontRenderer((rl) -> f);

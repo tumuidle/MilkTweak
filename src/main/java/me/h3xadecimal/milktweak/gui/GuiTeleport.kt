@@ -4,6 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack
 import me.h3xadecimal.milktweak.MilkTweak
 import me.h3xadecimal.milktweak.gui.components.PublicHomeButton
 import me.h3xadecimal.milktweak.utils.RenderUtil
+import me.h3xadecimal.milktweak.utils.fonts.FontLoaders
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.util.text.StringTextComponent
@@ -53,11 +54,11 @@ class GuiTeleport: Screen(StringTextComponent("Teleport")) {
         val subtitle = "由服务器玩家创建"
         mc.fontRenderer.drawTextWithShadow(matrixStack, StringTextComponent(subtitle), RenderUtil.getCenterX(this, subtitle).toFloat(), 27f, 0xffffff)
 
-        val titleSer2 = StringTextComponent("二服")
-        mc.fontRenderer.drawTextWithShadow(matrixStack, titleSer2, X_SER2, SUBTITLE_Y, 0xffffff)
+        val titleSer2 ="二服"
+        mc.fontRenderer.drawTextWithShadow(matrixStack, StringTextComponent(titleSer2), X_SER2, SUBTITLE_Y, 0xffffff)
 
-        val titleSer3 = StringTextComponent("三服")
-        mc.fontRenderer.drawTextWithShadow(matrixStack, titleSer3, X_SER3, SUBTITLE_Y, 0xffffff)
+        val titleSer3 ="三服"
+        mc.fontRenderer.drawTextWithShadow(matrixStack, StringTextComponent(titleSer3), X_SER3, SUBTITLE_Y, 0xffffff)
 
         super.render(matrixStack, mouseX, mouseY, partialTicks)
     }

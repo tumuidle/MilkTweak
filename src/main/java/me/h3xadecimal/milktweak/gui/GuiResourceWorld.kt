@@ -14,9 +14,11 @@ class GuiResourceWorld: Screen(StringTextComponent("ResourceWorld")) {
     override fun init() {
         nether = addButton(Button(width/2-50, 55, 100, 20, StringTextComponent("地狱")) {
             minecraft!!.player!!.sendChatMessage("/resourceworld tp nether")
+            closeScreen()
         })
         end = addButton(Button(width/2-50, 80, 100, 20, StringTextComponent("末地")) {
             minecraft!!.player!!.sendChatMessage("/resourceworld tp end")
+            closeScreen()
         })
 
         super.init()

@@ -32,12 +32,12 @@ class GuiTeleport: Screen(StringTextComponent("Teleport")) {
         var i = SUBTITLE_Y + 10
 
         for (b in ser2.keys) {
-            addButton(PublicHomeButton(X_SER3.toInt(), i.toInt(), StringTextComponent(ser2[b]!!), b))
+            addButton(PublicHomeButton(X_SER3.toInt(), i.toInt(), StringTextComponent(ser2[b]!!), b, this))
         }
         i = SUBTITLE_Y + 10
 
         for (b in ser3.keys) {
-            addButton(PublicHomeButton(X_SER3.toInt(), i.toInt(), StringTextComponent(ser3[b]!!), b))
+            addButton(PublicHomeButton(X_SER3.toInt(), i.toInt(), StringTextComponent(ser3[b]!!), b, this))
             i += BUTTON_DELTA
         }
 

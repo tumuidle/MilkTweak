@@ -16,6 +16,8 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
     lateinit var privateMessageButton: Button
     lateinit var announceButton: Button
 
+    lateinit var blacklistButton: Button
+
     override fun init() {
         // LINE 1
         spawnButton = addButton(Button(
@@ -42,6 +44,11 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
         privateMessageButton = addButton(Button(
             width/2 + 5, 110, 100, 20, StringTextComponent("指定私聊")
         ) { minecraft!!.displayGuiScreen(GuiPrivateMessage()) })
+
+        // LINE 4
+        blacklistButton = addButton(Button(
+            width/2 - 105, 135, 100, 20, StringTextComponent("聊天屏蔽")
+        ) { minecraft!!.displayGuiScreen(GuiBlackList()) })
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

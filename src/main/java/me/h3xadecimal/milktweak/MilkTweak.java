@@ -3,6 +3,7 @@ package me.h3xadecimal.milktweak;
 import me.h3xadecimal.milktweak.events.MilkTweakEB;
 import me.h3xadecimal.milktweak.features.Protections;
 import me.h3xadecimal.milktweak.files.FileConfig;
+import me.h3xadecimal.milktweak.files.FilesManager;
 import me.h3xadecimal.milktweak.gui.MainUI;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.InputEvent;
@@ -47,14 +48,7 @@ public class MilkTweak {
         uiInstance = new MainUI();
         eventBus = new MilkTweakEB();
 
-        File configFile = new File(Minecraft.getInstance().gameDir, "milktweak.json");
-        if (configFile.exists()) {
-            config = FileConfig.load(configFile);
-        } else {
-            config = FileConfig.empty();
-        }
-
-        if (Boolean.TRUE.equals(config.getBoolean("AntiVanish"))) Protections.AntiVanish.INSTANCE.install();
+        FilesManager.load();
     }
 
     @SubscribeEvent

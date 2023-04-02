@@ -13,7 +13,7 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
     lateinit var resourceWorldButton: Button
     lateinit var homeButton: Button
 
-    lateinit var protectionButton: Button
+    lateinit var privateMessageButton: Button
     lateinit var announceButton: Button
 
     override fun init() {
@@ -37,8 +37,11 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
 
         // LINE 3
         announceButton = addButton(Button(
-            width/2 + 5, 110, 100, 20, StringTextComponent("信息")
+            width/2 - 105, 110, 100, 20, StringTextComponent("信息")
         ) { minecraft!!.displayGuiScreen(GuiAnnounce()) })
+        privateMessageButton = addButton(Button(
+            width/2 + 5, 110, 100, 20, StringTextComponent("指定私聊")
+        ) { minecraft!!.displayGuiScreen(GuiPrivateMessage()) })
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

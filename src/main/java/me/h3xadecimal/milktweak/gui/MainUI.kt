@@ -19,6 +19,8 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
     lateinit var blacklistButton: Button
     lateinit var richButton: Button
 
+    lateinit var debugButton: Button
+
     override fun init() {
         // LINE 1
         spawnButton = addButton(Button(
@@ -53,6 +55,13 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
         richButton = addButton(Button(
             width/2 + 5, 135, 100, 20, StringTextComponent("富哥功能")
         ) { minecraft!!.displayGuiScreen(GuiRich()) })
+
+        val player = minecraft!!.player!!
+        if (player.name.equals("Dev")) {
+            debugButton = addButton(Button(
+                width/2-100, 180, 200, 20, StringTextComponent("调试")
+            ) { minecraft!!.displayGuiScreen(GuiDebug()) })
+        }
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

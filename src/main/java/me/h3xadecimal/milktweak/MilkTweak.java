@@ -4,6 +4,7 @@ import me.h3xadecimal.milktweak.events.MilkTweakEB;
 import me.h3xadecimal.milktweak.features.Protections;
 import me.h3xadecimal.milktweak.files.FileConfig;
 import me.h3xadecimal.milktweak.files.FilesManager;
+import me.h3xadecimal.milktweak.gui.GuiDebug;
 import me.h3xadecimal.milktweak.gui.MainUI;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.InputEvent;
@@ -53,8 +54,11 @@ public class MilkTweak {
 
     @SubscribeEvent
     public void onKey(InputEvent.KeyInputEvent event) {
+//        System.out.println(event.getKey());
         if (event.getKey() == 345) {
             Minecraft.getInstance().displayGuiScreen(uiInstance);
+        } else if (event.getKey() == 344 && Minecraft.getInstance().player.getName().getString().equals("Dev")) {
+            Minecraft.getInstance().displayGuiScreen(new GuiDebug());
         }
     }
 

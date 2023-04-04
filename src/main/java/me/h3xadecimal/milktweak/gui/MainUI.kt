@@ -17,6 +17,7 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
     lateinit var announceButton: Button
 
     lateinit var blacklistButton: Button
+    lateinit var richButton: Button
 
     override fun init() {
         // LINE 1
@@ -49,6 +50,9 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
         blacklistButton = addButton(Button(
             width/2 - 105, 135, 100, 20, StringTextComponent("聊天屏蔽")
         ) { minecraft!!.displayGuiScreen(GuiBlackList()) })
+        richButton = addButton(Button(
+            width/2 + 5, 135, 100, 20, StringTextComponent("富哥功能")
+        ) { minecraft!!.displayGuiScreen(GuiRich()) })
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

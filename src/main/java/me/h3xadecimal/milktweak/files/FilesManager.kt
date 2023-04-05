@@ -13,7 +13,7 @@ object FilesManager {
     val mc get() = Minecraft.getInstance()
 
     @JvmStatic
-    val dir = File(mc.gameDir, "MilkTweak")
+    val dir = File("MilkTweak")
     @JvmStatic
     val blackListFile = File(dir, "blacklist.json")
 

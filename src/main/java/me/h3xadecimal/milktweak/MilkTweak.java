@@ -1,7 +1,6 @@
 package me.h3xadecimal.milktweak;
 
 import me.h3xadecimal.milktweak.events.MilkTweakEB;
-import me.h3xadecimal.milktweak.features.Protections;
 import me.h3xadecimal.milktweak.files.FileConfig;
 import me.h3xadecimal.milktweak.files.FilesManager;
 import me.h3xadecimal.milktweak.gui.MainUI;
@@ -47,6 +46,7 @@ public class MilkTweak {
     private void doClientStuff(final FMLClientSetupEvent event) {
         uiInstance = new MainUI();
         eventBus = new MilkTweakEB();
+        config = FileConfig.load(FilesManager.getMainConfig());
 
         FilesManager.load();
     }
@@ -69,5 +69,9 @@ public class MilkTweak {
 
     public MilkTweakEB getEventBus() {
         return eventBus;
+    }
+
+    public void saveConfig() {
+        FilesManager.saveConfig(config, FilesManager.getMainConfig());
     }
 }

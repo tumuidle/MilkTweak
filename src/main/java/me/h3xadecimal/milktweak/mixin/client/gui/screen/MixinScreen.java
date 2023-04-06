@@ -1,5 +1,6 @@
 package me.h3xadecimal.milktweak.mixin.client.gui.screen;
 
+import me.h3xadecimal.milktweak.gui.GuiFunctions;
 import me.h3xadecimal.milktweak.gui.GuiPrivateMessage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FocusableGui;

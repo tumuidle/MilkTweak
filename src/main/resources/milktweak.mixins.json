@@ -13,6 +13,7 @@
     "client.gui.screen.MixinDisconnectedScreen",
     "client.gui.screen.MixinPlayerTabOverlayGui",
     "client.gui.screen.MixinScreen",
+    "client.gui.screen.inventory.MixinAnvilScreen",
     "patch.camera.MixinCameraScreen"
   ],
   "injectors": {

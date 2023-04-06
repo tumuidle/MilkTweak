@@ -19,7 +19,7 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'kotlin'
 
 group = 'me.h3xadecimal'
-version = '1.6-rc1'
+version = '1.6-rc2'
 
 java {
     archivesBaseName = 'milktweak'

@@ -12,9 +12,13 @@ class FileConfig private constructor(private val map: HashMap<String, Any>) {
     companion object {
         @JvmStatic
         fun load(file: File): FileConfig {
-            val bytes = IOUtils.toByteArray(Files.newInputStream(file.toPath()))
-            val str = String(bytes, StandardCharsets.UTF_8)
-            return FileConfig(Gson().fromJson(str, HashMap::class.java) as HashMap<String, Any>)
+            return try {
+                val bytes = IOUtils.toByteArray(Files.newInputStream(file.toPath()))
+                val str = String(bytes, StandardCharsets.UTF_8)
+                FileConfig(Gson().fromJson(str, HashMap::class.java) as HashMap<String, Any>)
+            } catch (t: Throwable) {
+                empty()
+            }
         }
 
         @JvmStatic
@@ -52,10 +56,10 @@ class FileConfig private constructor(private val map: HashMap<String, Any>) {
         return null
     }
 
-    fun getBoolean(key: String): Boolean? {
+    fun getBoolean(key: String, def: Boolean): Boolean {
         if (contains(key) && get(key) is Boolean) {
             return get(key) as Boolean
         }
-        return null
+        return def
     }
 }

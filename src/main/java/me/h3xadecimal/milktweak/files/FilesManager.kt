@@ -2,6 +2,7 @@ package me.h3xadecimal.milktweak.files
 
 import com.google.gson.Gson
 import net.minecraft.client.Minecraft
+import java.io.BufferedOutputStream
 import java.io.File
 import java.io.IOException
 import java.lang.IllegalArgumentException
@@ -16,6 +17,8 @@ object FilesManager {
     val dir = File("MilkTweak")
     @JvmStatic
     val blackListFile = File(dir, "blacklist.json")
+    @JvmStatic
+    val mainConfig = File(dir, "config.json")
 
     @JvmStatic
     fun load() {
@@ -41,5 +44,12 @@ object FilesManager {
         map["blacklist"] = blacklist
         val str = Gson().toJson(map)
         Files.write(blackListFile.toPath(), str.toByteArray(StandardCharsets.UTF_8))
+    }
+    
+    @JvmStatic
+    fun saveConfig(config: FileConfig, file: File) {
+        val bos = BufferedOutputStream(Files.newOutputStream(file.toPath()))
+        bos.write(config.toString().toByteArray(StandardCharsets.UTF_8))
+        bos.close()
     }
 }

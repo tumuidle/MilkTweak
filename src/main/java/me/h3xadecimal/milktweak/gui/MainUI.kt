@@ -20,6 +20,7 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
     lateinit var richButton: Button
 
     lateinit var helperButton: Button
+    lateinit var functionsButton: Button
 
     lateinit var debugButton: Button
 
@@ -62,6 +63,9 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
         helperButton = addButton(Button(
             width/2 - 105, 160, 100, 20, StringTextComponent("辅助功能")
         ) { minecraft!!.displayGuiScreen(GuiHelper()) } )
+        functionsButton = addButton(Button(
+            width/2 + 5, 160, 100, 20, StringTextComponent("功能")
+        ) { minecraft!!.displayGuiScreen(GuiFunctions()) } )
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

@@ -5,30 +5,32 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.util.text.StringTextComponent;
 
 public class OptionButton extends Button {
-    private final String configKey;
     private final String displayName;
+    private boolean state;
 
-    public OptionButton(int x, int y, int width, int height, String displayName, String configKey, IPressable press) {
+    public OptionButton(int x, int y, int width, int height, String displayName, IPressable press) {
         super(x, y, width, height, new StringTextComponent(displayName), press);
-        this.configKey = configKey;
         this.displayName = displayName;
         setMessage(new StringTextComponent(displayName + ": " + getConfigStateString()));
     }
 
-    public OptionButton(int x, int y, int width, int height, String displayName, String configKey) {
-        this(x, y, width, height, displayName, configKey, (b) -> {});
+    public OptionButton(int x, int y, int width, int height, String displayName) {
+        this(x, y, width, height, displayName, (b) -> {});
     }
 
     @Override
     public void onPress() {
-        putConfigState(!getConfigState());
+        state = !state;
         setMessage(new StringTextComponent(displayName + ": " + getConfigStateString()));
+        super.onPress();
     }
 
-    private boolean getConfigState() {
-        Boolean state = MilkTweak.INSTANCE.getConfig().getBoolean(configKey);
-        if (state != null) return state;
-        return false;
+    public boolean getConfigState() {
+        return state;
+    }
+
+    public void setConfigState(boolean state) {
+        if (this.state!= state) {onPress();}
     }
 
     private String getConfigStateString() {
@@ -37,9 +39,5 @@ public class OptionButton extends Button {
         } else {
             return "§c禁用";
         }
-    }
-
-    private void putConfigState(boolean state) {
-        MilkTweak.INSTANCE.getConfig().put(configKey, state);
     }
 }

@@ -4,10 +4,13 @@ import me.h3xadecimal.milktweak.events.MilkTweakEB;
 import me.h3xadecimal.milktweak.files.FileConfig;
 import me.h3xadecimal.milktweak.files.FilesManager;
 import me.h3xadecimal.milktweak.gui.MainUI;
+import me.h3xadecimal.milktweak.utils.FMLUtils;
+import me.h3xadecimal.milktweak.utils.GitUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -30,7 +33,6 @@ public class MilkTweak {
 
     public MilkTweak() {
         INSTANCE = this;
-
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the doClientStuff method for modloading
@@ -44,6 +46,8 @@ public class MilkTweak {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        LOGGER.info("Loading MilkTweak " + getVersion());
+
         uiInstance = new MainUI();
         eventBus = new MilkTweakEB();
         config = FileConfig.load(FilesManager.getMainConfig());
@@ -73,5 +77,13 @@ public class MilkTweak {
 
     public void saveConfig() {
         FilesManager.saveConfig(config, FilesManager.getMainConfig());
+    }
+
+    public ModContainer getContainer() {
+        return FMLUtils.getModContainer("milktweak");
+    }
+
+    public String getVersion() {
+        return GitUtils.getBuildVersion() + " (git-" + GitUtils.getCommitHash() + ")";
     }
 }

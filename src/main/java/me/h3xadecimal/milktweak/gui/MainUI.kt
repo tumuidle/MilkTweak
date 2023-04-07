@@ -1,6 +1,7 @@
 package me.h3xadecimal.milktweak.gui
 
 import com.mojang.blaze3d.matrix.MatrixStack
+import me.h3xadecimal.milktweak.MilkTweak
 import me.h3xadecimal.milktweak.utils.fonts.FontLoaders
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.widget.button.Button
@@ -73,6 +74,8 @@ class MainUI : Screen(StringTextComponent("MilkTweak")) {
 
         FontLoaders.Harmony40.drawCenteredString("MilkTweak", (width/2).toFloat(), 15f, 0xFFFFFF)
         FontLoaders.Harmony18.drawCenteredString("Made by H3xadecimal", (width/2).toFloat(), 33f, 0xFFFFFF)
+
+        FontLoaders.Harmony18.drawCenteredString(MilkTweak.INSTANCE.version, (width/2).toFloat(), (height-20).toFloat(), 0xFFFFFF)
 
         super.render(matrixStack, mouseX, mouseY, partialTicks)
     }

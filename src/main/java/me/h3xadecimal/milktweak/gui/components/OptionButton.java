@@ -9,7 +9,12 @@ public class OptionButton extends Button {
     private boolean state;
 
     public OptionButton(int x, int y, int width, int height, String displayName, IPressable press) {
-        super(x, y, width, height, new StringTextComponent(displayName), press);
+        this(x, y, width, height, displayName, press, Button.EMPTY_TOOLTIP);
+        setMessage(new StringTextComponent(displayName + ": " + getConfigStateString()));
+    }
+
+    public OptionButton(int x, int y, int width, int height, String displayName, IPressable press, ITooltip tooltip) {
+        super(x, y, width, height, new StringTextComponent(displayName), press, tooltip);
         this.displayName = displayName;
         setMessage(new StringTextComponent(displayName + ": " + getConfigStateString()));
     }

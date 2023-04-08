@@ -3,6 +3,7 @@ package me.h3xadecimal.milktweak;
 import me.h3xadecimal.milktweak.events.MilkTweakEB;
 import me.h3xadecimal.milktweak.files.FileConfig;
 import me.h3xadecimal.milktweak.files.FilesManager;
+import me.h3xadecimal.milktweak.gui.GuiFunctions;
 import me.h3xadecimal.milktweak.gui.MainUI;
 import me.h3xadecimal.milktweak.utils.FMLUtils;
 import me.h3xadecimal.milktweak.utils.GitUtils;
@@ -53,6 +54,7 @@ public class MilkTweak {
         config = FileConfig.load(FilesManager.getMainConfig());
 
         FilesManager.load();
+        GuiFunctions.loadConfig();
     }
 
     @SubscribeEvent

@@ -23,6 +23,12 @@ class GuiFunctions: Screen(StringTextComponent("Functions")) {
         fun handleTextColor(origin: String): String {
             return origin.replace("&", "§")
         }
+
+        @JvmStatic
+        fun loadConfig() {
+            textColor = MilkTweak.INSTANCE.config.getBoolean("functions.textColor", false)
+            noUnicodeWarn = MilkTweak.INSTANCE.config.getBoolean("functions.noUnicodeWarn", false)
+        }
     }
 
     lateinit var buttonTextColor: OptionButton

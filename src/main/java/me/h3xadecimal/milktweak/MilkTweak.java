@@ -1,6 +1,7 @@
 package me.h3xadecimal.milktweak;
 
 import me.h3xadecimal.milktweak.events.MilkTweakEB;
+import me.h3xadecimal.milktweak.features.halo.Halo;
 import me.h3xadecimal.milktweak.files.FileConfig;
 import me.h3xadecimal.milktweak.files.FilesManager;
 import me.h3xadecimal.milktweak.gui.GuiFunctions;
@@ -8,13 +9,16 @@ import me.h3xadecimal.milktweak.gui.MainUI;
 import me.h3xadecimal.milktweak.utils.FMLUtils;
 import me.h3xadecimal.milktweak.utils.GitUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModContainer;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,6 +42,7 @@ public class MilkTweak {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::lateinit);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -55,6 +60,12 @@ public class MilkTweak {
 
         FilesManager.load();
         GuiFunctions.loadConfig();
+
+//        Halo.loadHaloFromCloud();
+//        MinecraftForge.EVENT_BUS.register(Halo.INSTANCE);
+    }
+
+    private void lateinit(final FMLLoadCompleteEvent event) {
     }
 
     @SubscribeEvent

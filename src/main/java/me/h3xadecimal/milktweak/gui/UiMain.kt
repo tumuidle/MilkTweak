@@ -11,7 +11,8 @@ class UiMain: Screen(StringTextComponent("MilkTweakMain")) {
     private val mc get() = Minecraft.getInstance()
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
-        FontLoaders.Arial40.drawCenteredString("MilkTweak v2",  (mc.currentScreen!!.width/2).toFloat(), 30f, 0xFFFFFF)
+        renderBackground(matrixStack)
+        FontLoaders.Arial40.drawCenteredString("MilkTweak v2",  (mc.currentScreen!!.width/2).toFloat(), 20f, 0xFFFFFF)
 
         FontLoaders.Arial18.drawCenteredString("git-${GitUtils.getCommitHash()} BuildVer.${GitUtils.getBuildVersion()}", (mc.currentScreen!!.width/2).toFloat(), (mc.currentScreen!!.height-20).toFloat(), 0xFFFFFF)
         super.render(matrixStack, mouseX, mouseY, partialTicks)

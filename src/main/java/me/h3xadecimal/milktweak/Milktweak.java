@@ -57,7 +57,6 @@ public class Milktweak {
 
     @SubscribeEvent
     public void onKey(InputEvent.KeyInputEvent event) {
-        System.out.println(event.getKey());
         if (event.getKey() == 345) {
             LOGGER.info("Displaying MainUI");
             Minecraft.getInstance().displayGuiScreen(new UiMain());

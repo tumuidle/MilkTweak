@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -55,10 +56,11 @@ public class Milktweak {
     }
 
     @SubscribeEvent
-    public void onKey(GuiScreenEvent.KeyboardKeyEvent event) {
-        if (event.getKeyCode() == 344) {
+    public void onKey(InputEvent.KeyInputEvent event) {
+        System.out.println(event.getKey());
+        if (event.getKey() == 345) {
+            LOGGER.info("Displaying MainUI");
             Minecraft.getInstance().displayGuiScreen(new UiMain());
         }
-
     }
 }

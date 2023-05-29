@@ -14,6 +14,9 @@ public abstract class FontLoaders {
 	public static CFontRenderer Harmony18 = new CFontRenderer(FontLoaders.getfonts(18, "HarmonySans", true), true, true);
 	public static CFontRenderer Harmony40 = new CFontRenderer(FontLoaders.getfonts(40, "HarmonySans", true), true, true);
 
+	public static CFontRenderer Regular18 = new CFontRenderer(getfonts(18, "regular", true), true, true);
+	public static CFontRenderer Regular40 = new CFontRenderer(getfonts(40, "regular", true), true, true);
+
 	private static Font getfonts(int size,String fontname,boolean ttf) {
 		Font font;
 		try {

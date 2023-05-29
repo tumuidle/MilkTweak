@@ -1,6 +1,7 @@
 package me.h3xadecimal.milktweak.gui.button;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import me.h3xadecimal.milktweak.utils.font.FontLoaders;
 import me.h3xadecimal.milktweak.utils.render.RenderUtils;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -22,6 +23,7 @@ public class GuiButton extends net.minecraft.client.gui.widget.button.Button{
         } else {
             RenderUtils.drawRect(matrixStack, x, y, width, height, color.getRGB());
         }
+        FontLoaders.Arial18.drawCenteredString(getMessage().getString(), x+width/2, y+height/2, 0xFFFFFF);
 
         if (this.isHovered()) {
             this.renderToolTip(matrixStack, mouseX, mouseY);

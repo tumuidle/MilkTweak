@@ -12,6 +12,10 @@ class OptionButton(x: Int, y: Int, width: Int, height:Int, private val title: St
         if (FileManager.cfg.containsKey(configKey) && FileManager.cfg[configKey] is Boolean) state = FileManager.cfg[configKey] as Boolean
     }
 
+    fun getState(): Boolean {
+        return state
+    }
+
     override fun onPress() {
         FileManager.cfg[configKey] = state
         super.onPress()

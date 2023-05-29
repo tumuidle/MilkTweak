@@ -7,6 +7,8 @@
   "mixins": [
   ],
   "client": [
+    "MixinClientPlayNetHandler",
+    "MixinMinecraft"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -13,16 +13,16 @@ import java.util.Map;
 import java.util.function.BiFunction;
 
 /**
- * 禁用Forge申毕检查
+ * Forge NMSL
  */
 @Mixin(value = NetworkRegistry.class, remap = false)
 public class MixinNetworkRegistery {
-    @Inject(method = "checkListPingCompatibilityForClient", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "checkListPingCompatibilityForClient", at = @At("RETURN"), cancellable = true, remap = false)
     private static void checkListPingCompatibilityForClient(Map<ResourceLocation, Pair<String, Boolean>> incoming, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(true);
     }
 
-    @Inject(method = "validateChannels", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "validateChannels", at = @At("RETURN"), cancellable = true, remap = false)
     private static void validateChannels(Map<ResourceLocation, String> incoming, String originName, BiFunction<NetworkInstance, String, Boolean> testFunction, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(true);
     }

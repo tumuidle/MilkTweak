@@ -1,6 +1,5 @@
 package me.h3xadecimal.milktweak.mixin;
 
-import me.h3xadecimal.milktweak.functions.AntiAim;
 import net.minecraft.client.Minecraft;
 import net.minecraft.profiler.LongTickDetector;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,7 +1,6 @@
 package me.h3xadecimal.milktweak.mixin;
 
 import io.netty.channel.ChannelHandlerContext;
-import me.h3xadecimal.milktweak.gui.GuiMisc;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.network.play.ClientPlayNetHandler;
@@ -40,10 +39,6 @@ public class MixinClientPlayNetHandler {
         }
         if (packetIn.getFlags().contains(SPlayerPositionLookPacket.Flags.Z)) {
             d2 += entityplayer.getPosZ();
-        }
-
-        if (GuiMisc.INSTANCE.getButtonAntiAim().getState()) {
-            if (this.doneLoadingTerrain) flag = true;
         }
 
         if (flag) {

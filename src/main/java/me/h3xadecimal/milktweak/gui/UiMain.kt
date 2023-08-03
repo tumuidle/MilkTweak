@@ -2,6 +2,7 @@ package me.h3xadecimal.milktweak.gui
 
 import com.mojang.blaze3d.matrix.MatrixStack
 import me.h3xadecimal.milktweak.gui.button.GuiButton
+import me.h3xadecimal.milktweak.gui.teleport.UiTeleportMenu
 import me.h3xadecimal.milktweak.utils.GitUtils
 import me.h3xadecimal.milktweak.utils.font.FontLoaders
 import net.minecraft.client.Minecraft
@@ -10,7 +11,13 @@ import net.minecraft.util.text.StringTextComponent
 
 class UiMain: Screen(StringTextComponent("MilkTweakMain")) {
     private val mc get() = Minecraft.getInstance()
+
+    private lateinit var btnTeleportMenu: GuiButton
+
     override fun init() {
+        btnTeleportMenu = addButton(GuiButton(getCenterX()-105, 60, 100, 20, "传送") {
+            mc.displayGuiScreen(UiTeleportMenu())
+        })
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

@@ -10,11 +10,7 @@ import net.minecraft.util.text.StringTextComponent
 
 class UiMain: Screen(StringTextComponent("MilkTweakMain")) {
     private val mc get() = Minecraft.getInstance()
-
-    lateinit var miscButton: GuiButton
-
     override fun init() {
-        miscButton = addButton(GuiButton(getCenterX(), 50, 100, 20, "杂项功能") { mc.displayGuiScreen(GuiMisc) })
     }
 
     override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

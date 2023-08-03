@@ -5,11 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "milktweak.refmap.json",
   "mixins": [
-    "patch.forge.MixinNetworkRegistery"
   ],
   "client": [
-    "MixinClientPlayNetHandler",
-    "MixinMinecraft"
   ],
   "injectors": {
     "defaultRequire": 1

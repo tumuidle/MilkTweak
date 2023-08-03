@@ -21,6 +21,7 @@ object FileManager {
     val PRETTY_GSON: Gson = GsonBuilder().setPrettyPrinting().create()
 
     var cfg = HashMap<String, Any>()
+    private set
 
     fun init() {
         if (!folder.exists()) folder.mkdirs()

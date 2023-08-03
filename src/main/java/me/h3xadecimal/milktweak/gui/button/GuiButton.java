@@ -4,6 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import me.h3xadecimal.milktweak.utils.render.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
@@ -26,7 +27,7 @@ public class GuiButton extends net.minecraft.client.gui.widget.button.Button{
         }
 
         FontRenderer fr = Minecraft.getInstance().fontRenderer;
-        fr.drawStringWithShadow(matrixStack, getMessage().getString(), x+(width-fr.getStringWidth(getMessage().getString()))/2, y+height/2, 0xFFFFFF);
+        drawCenteredString(matrixStack, fr, this.getMessage(), this.x + this.width / 2, this.y + (this.height - 8) / 2, getFGColor() | MathHelper.ceil(this.alpha * 255.0F) << 24);
 
         if (this.isHovered()) {
             this.renderToolTip(matrixStack, mouseX, mouseY);
